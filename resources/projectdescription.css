@@ -1,0 +1,41 @@
+.firstHeading, #catlinks{
+				display: none;
+			}
+			#content{
+				background-color: #f2f2f2;
+			}
+			#page_wrapper{
+			width: 800px;
+			margin: auto;
+			}
+			#page_wrapper #description_wrapper{
+				margin: auto;
+				margin-top: 50px;
+				padding: 10px;
+				background-color: rgba(0,0,0,0.35);
+				} 
+				#page_wrapper #description_wrapper #description_title,#description_team_name{
+					text-align: center ;
+					font-family:"Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+					color: #7f7f7f;
+					}
+					#page_wrapper #description_wrapper #description_title{
+						font-size: 30px;
+					}
+					#page_wrapper #description_wrapper #description_team_name{
+						font-size: 25px;
+						margin: 20px 0px 20px 0px;
+					}
+				#page_wrapper #description_wrapper #description_body_wrapper{
+					line-height: 1.5em;
+				}
+				#page_wrapper #description_wrapper #description_body_wrapper{
+					text-align: justify;
+					margin-bottom: 100px;
+					padding: 20px;
+					font:18px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+					color: #7f7f7f;
+				}
+			p + p{
+				text-indent: 1.5em;
+			}

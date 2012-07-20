@@ -1,0 +1,133 @@
+<style type = "text/css">
+		
+		*{
+			margin: 0;
+			padding: 0;
+			text-decoration: none;
+		}
+								
+		h1, a{
+			text-decoration: none;
+			color: white;
+			font-style: normal;
+		}
+		
+		div{
+			display: block;
+		}
+		
+		.clr{
+			clear: both;
+		}
+		
+		#globalheader{
+			width: 980px;
+			margin: 20px auto;
+			padding: 15px 30px;
+			font-size: 1.5em;
+			font-family: Optima,"Courier New",Courier, "Andale Mono", Monaco ;
+			background-color:rgba(0, 0, 0, 0.35) ;
+			color: white;
+		}
+		
+		#logo{
+			float: left;
+			padding: 30px 15px;
+			}
+			#logo a{
+				color: white;
+			}
+		
+		#globalnav{
+			height: 50px;
+			}
+			#globalnav li a{
+				margin: 0px 0px 0px 0px;
+				-webkit-transition: color 0.25s linear 0s, text-shadow 0.25s linear 0s;
+				border-right: 1px solid #000;
+                padding-top: 0px;
+                padding-right: 25px;
+                padding-bottom: 0px;
+                padding-left: 25px;
+                border-right-width: 1px;
+                border-right-style: solid;
+                border-right-color: #CCC;
+                text-shadow: #FFF;
+				}
+		     #globalnav li a.hp{
+				border-right:0px;
+				}  /*--menu border right line*/
+				
+				#globalnav li a:hover{
+					text-shadow: #dcf0fd 0 0 20px;
+					color: #508ebf;
+						
+				/*	background: transparent url(images/li_hover.png) no-repeat center bottom;
+                 background-image: url(http://wordpress.cssmania.netdna-cdn.com/wp-content/themes/cssmania/images/li_hover.png);
+                  background-repeat-x: no-repeat;
+                     background-repeat-y: no-repeat;
+                     background-attachment: initial;
+                     background-position-x: 50%;
+                     background-position-y: 100%;
+                   background-origin: initial;
+                     background-clip: initial;
+                     background-color: transparent;	 ----background action*/
+				}
+		
+		#globalheader ul{
+			list-style-type: disc;
+			}
+			#globalheader ul li{
+				float: left;
+				list-style: none;
+				font-size: 0.75em;
+				text-transform: uppercase;
+				}
+			
+	</style>
+	
+
+	<div id = "globalheader">
+		
+		<div id = "teamheader">
+			<div id = "logo">
+				<h1>
+					<a href="index.html">USTC<span>-</span>Software</a>
+				</h1>
+			</div>
+			<div class="clr"></div>
+		</div>
+		<ul id="globalnav">
+			<li id = "gn-ustc">
+				<a href = "/" class="home">
+					Home
+				</a>
+			</li>
+			<li id = "gn-project">
+				<a href = "/" class="project">
+					Project
+				</a>
+			</li>
+			<li id = "gn-tech">
+				<a href = "/" class="technology">
+					Technology
+				</a>
+			</li>
+			<li id = "gn-achivements">
+				<a href = "/" class="achivements">
+					Achivements
+				</a>
+			</li>
+			<li id = "gn-team">
+				<a href = "/" class="team">
+					Team
+				</a>
+			</li>
+			<li id = "gn-hp">
+				<a href = "/" class="hp">
+					Human Practice
+				</a>
+			</li>
+		</ul>
+
+	</div>

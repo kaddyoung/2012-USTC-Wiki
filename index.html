@@ -1,13 +1,581 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
-<html>
-	<head>
-		<title>USTC-Software Home Page</title>
-		<link rel="stylesheet" type="text/css" href="resources/general.css" />
-	</head>
-	
-	<body class="home">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>USTC SOFTWARE 2012 index</title>
+<link rel="stylesheet" type="text/css" href="resources/header.css" />
+
+<!---the link of js for vivid images showing-
+
+<script type="text/javascript"  src="resources/image-showing1.js"></script>
+<script type="text/javascript"  src="resources/image-showing2.js"></script>
+
+---->
+<script type="text/javascript" src="http://www.kane.com.au/assets/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="http://www.kane.com.au/assets/js/jquery.cycle.all.min.js"></script>
+<!--------if can't upload image-showing js files the following link could be instead--------
+-----------js online-------> 
+
+      <!--------no use here maybe one of  the above has include the below one
+      <script type="text/javascript" src="resources/js-clock.js"></script>
+                <!--------link http js web address
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+      --------->
+      
+      
+  <!---the begin of js-clock --->
+  <script>
+        // inner variables
+var canvas, ctx;
+var clockRadius = 70;    //set clockRadius size here
+var clockImage;
+
+// draw functions :
+function clear() { // clear canvas function
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+}
+
+function drawScene() { // main drawScene function
+    clear(); // clear canvas
+
+    // get current time
+    var date = new Date();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+    hours = hours > 12 ? hours - 12 : hours;
+    var hour = hours + minutes / 60;
+    var minute = minutes + seconds / 60;
+
+    // save current context
+    ctx.save();
+
+    // draw clock image (as background)
+    ctx.drawImage(clockImage, 0, 0, 140, 140);  //set clockImage size here
+
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+    ctx.beginPath();
+
+    // draw numbers
+    ctx.font = '12px Arial';   //set number size and style here
+    ctx.fillStyle = '#bcbcbc';    //set hour and minute hands and font color here
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    for (var n = 1; n <= 12; n++) {
+        var theta = (n - 3) * (Math.PI * 2) / 12;
+        var x = clockRadius * 0.7 * Math.cos(theta);
+        var y = clockRadius * 0.7 * Math.sin(theta);
+        ctx.fillText(n, x, y);
+    }
+
+    // draw hour
+    ctx.save();
+    var theta = (hour - 3) * 2 * Math.PI / 12;
+    ctx.rotate(theta);
+    ctx.beginPath();
+    ctx.moveTo(-8, -2.4);
+    ctx.lineTo(-8, 2.4);
+    ctx.lineTo(clockRadius * 0.39, 0.9);//set hour-hand lenght here
+    ctx.lineTo(clockRadius * 0.39, -0.9);
+    ctx.fill();
+    ctx.restore();
+
+    // draw minute
+    ctx.save();
+    var theta = (minute - 15) * 2 * Math.PI / 60;
+    ctx.rotate(theta);
+    ctx.beginPath();
+    ctx.moveTo(-10, -2.1);
+    ctx.lineTo(-10, 2.1);
+    ctx.lineTo(clockRadius * 0.52, 0.7);//set minute-hand lenght here
+    ctx.lineTo(clockRadius * 0.52, -0.7);
+    ctx.fill();
+    ctx.restore();
+
+    // draw second
+    ctx.save();
+    var theta = (seconds - 15) * 2 * Math.PI / 60;
+    ctx.rotate(theta);
+    ctx.beginPath();
+    ctx.moveTo(-12, -1.6);  //set the end size of secondhand
+    ctx.lineTo(-12, 1.6);
+    ctx.lineTo(clockRadius * 0.68, 0.5);
+    ctx.lineTo(clockRadius * 0.68, -0.5);  //set second-hand lenght here and pinpiont size
+    ctx.fillStyle = '#0f0'; //set clock second-hand color #0f0 here
+    ctx.fill();
+    ctx.restore();
+    ctx.restore();
+}
+
+// initialization
+$(function(){
+    canvas = document.getElementById('canvas');
+    ctx = canvas.getContext('2d');
+
+    // var width = canvas.width;
+    // var height = canvas.height;
+
+clockImage = new Image();
+clockImage.src = 'images/clockImage120.png';//put clockImage-clockImage1?0 here
+
+    setInterval(drawScene, 1000); // loop drawScene
+});
+</script><!---the end of js-clock --->
+   
+
+
+ <!---the begin of header div--> 
+	<div id = "globalheader">
 		
-		
+		<div id = "teamheader">
+			<div id = "logo">
+				<h1>
+					<a href="index.html">USTC<span>-</span>Software</a>
+				</h1>
+			</div>
+			<div class="clr"></div>
+		</div>
+        
+		<ul id="globalnav">
+			<li id = "gn-ustc">
+				<a href = "index.html" class="home">
+					Home
+				</a>
+			</li>
+			<li id = "gn-project">
+				<a href = "project.html" class="project">
+					Project
+				</a>
+			</li>
+			<li id = "gn-tech">
+				<a href = "#" class="technology">
+					Technology
+				</a>
+			</li>
+			<li id = "gn-achivements">
+				<a href = "#" class="achivements">
+					Achivements
+				</a>
+			</li>
+			<li id = "gn-team">
+				<a href = "team.html" class="team">
+					Team
+				</a>
+			</li>
+			<li id = "gn-hp">
+				<a href = "#" class="hp">
+					Human Practice
+				</a>
+			</li>
+		</ul>
+        
+             <!---begin of js-clock div--->
+     <div class="clock">
+            <canvas id="canvas" width="120" height="120"></canvas> <!---set cavas size here----->
+        </div>
+      
+       <div class="clock_bg">
+       </div><!---the end of js-clock div--->
+        
+        
+
+	</div><!---the end of header div-->    
+
+    
+    
+ 
+ <style type="text/css">
+  
+#gn-ustc .home{
+	text-shadow: #5b819c 0 0 20px;
+	color: #96F;
+	background-image: url(images/header-menu-bg.png);
+	}/*the shadow of header menu css*/
 	
-	</body>
+	
+	/*the begin of clock-igem css*/
+  .clock {
+          height: 120px; 
+		  width: 120px;   
+          position: absolute;
+		  right:10px;
+		  top:10px;
+		   z-index:12;
+		 /*   border:2px solid #333;*/	 
+          }
+			
+    .clock_bg {
+		position: absolute; 
+	       right:31px;
+	       top:30px;
+	       width: 80px;
+	       height: 80px; 
+		   z-index:5;
+		   background-image:url(images/iGEM-LOGO-USTC-80-SP.png);
+	       }/*the end of clock-igem css*/	
+	
+	
+	
+#wrap_home_page{
+	display: block;
+	position:relative;
+	margin:0px auto;
+	width:980px;
+	height:auto;
+	margin-bottom:10px;
+   /* border-color:yellow;
+	border-style:solid;
+	border-width:1px;*/
+	}
+
+
+/*---the style css of images showing--*/
+#project_detail{
+	display: block;
+	position:relative;
+	margin:0px auto;
+	width:980px;
+	height:auto;
+	margin-top:25px;
+	margin-bottom:25px;
+    /* border-color:red;
+	border-style:solid;
+	border-width:1px;*/
+	}
+
+
+#project_images_container{
+	margin: 0 auto;
+	position:relative;
+}
+
+
+#project_detail_column {
+width: 600px;
+height:332px;
+padding:2px;
+position: relative;
+margin:4px auto;
+background:gray;
+border-color:#000;
+border-style:solid;
+border-width:2px
+}/*---the border of vivid photos show--*/
+
+
+#project_images_container {
+margin-bottom: 10px;
+position:relative;
+}
+
+#slideshow_prev.imagesizes {
+background: url(images/left-back-arrow.png) no-repeat;
+background-attachment: initial;
+background-position: 7% 50%;
+background-origin: initial;
+background-clip: initial;
+background-color: initial;
+}
+#slideshow_prev.imagesizes:hover {
+background: url(images/gray-left-arrow.png) no-repeat;
+background-attachment: initial;
+background-position: 7% 50%;
+background-origin: initial;
+background-clip: initial;
+background-color: initial;
+}
+#slideshow_prev.imagesizes{
+	position: absolute;	
+	top:50px;
+	z-index: 21;
+	height: 232px;
+	width: 100px;
+}
+
+#slideshow_next.imagesizes {
+background: url(images/right-black-arrow.png) no-repeat ;
+background-repeat-x: no-repeat;
+background-repeat-y: no-repeat;
+background-attachment: initial;
+background-position-x: 67px;
+background-position-y: 90px;
+background-origin: initial;
+background-clip: initial;
+background-color: initial;
+background-position: 95% 50%;
+}
+
+#slideshow_next.imagesizes:hover {
+background: url(images/right-gray-arrow.png) no-repeat;
+background-attachment: initial;
+background-position: 95% 50%;
+background-origin: initial;
+background-clip: initial;
+background-color: initial;
+}
+
+#slideshow_next.imagesizes{
+	position: absolute;	
+	top:50px;
+	z-index: 21;
+	height: 232px;
+	margin-left:500px;
+	width: 100px;
+	}
+#project_images {
+width: 600px;
+height: 332px;
+overflow: hidden;
+overflow-x: hidden;
+overflow-y: hidden;
+}
+#project_images.imagesizes {
+width: 600px;
+height: 332px;
+}
+#project_description {
+width: 100%;
+text-align:center;
+margin-top:10px;
+}
+.circle_shadow {
+padding:3px 5px 4px 5px;
+font-weight:normal;
+line-height:1;
+text-decoration:none;
+white-space:nowrap;
+font-size:15px;
+color:#fff;
+background:#636466;
+-webkit-border-radius:10px;
+-moz-border-radius:10px;
+border-radius:10px;
+}/*---the end of images showing style css----*/ 
+
+
+
+
+/*the begin of home content css*/
+#wrap_home_project{
+	display: block;
+	position:relative;
+	width:980px;
+	height:351px;
+	margin-bottom:25px;
+	margin-top:15px;
+   /* border-color:green;
+	border-style:solid;
+	border-width:2px;*/
+	}
+#home{
+	}
+#home h2 {
+font-size: 17px;
+line-height: 1.3em;
+font: inherit;
+color: #BBBDC0;
+font-family: Helvetica, Arial, sans-serif;
+}
+
+#home p {
+margin: 10px 0 16px 0;
+font-family: Helvetica, Arial, sans-serif;
+}
+
+#home .home_project_container {
+width: 190px;
+height: 310px;
+padding: 20px 20px 20px 20px;
+margin-right: 20px;
+margin-top:1px;
+float: left;
+background-color: #333;
+}
+#home .home_project_container_last{
+width: 190px;
+height: 310px;
+padding: 20px 20px 20px 20px;
+margin-top:1px;
+float: right;
+background-color: #333;
+}
+
+#home .home_project_container h2,#home .home_project_container_last h2 {
+margin-top: 5px;
+height: 20px;
+overflow: hidden;
+overflow-x: hidden;
+overflow-y: hidden;
+}
+
+
+#home .home_project_container h2 a,#home .home_project_container_last h2 a {
+text-decoration: none;
+color: #BBBDC0;
+}
+
+#home .home_project_container p a {
+color: #BBBDC0;
+}
+
+#home .home_project_container a,#home .home_project_container_last a{
+-webkit-transition: color 0.15s linear 0s, text-shadow 0.17s linear 0s;
+	}
+#home .home_project_container a:hover,#home .home_project_container_last a:hover{
+text-shadow: #dcf0fd 0 0 10px;
+color: #508ebf;
+text-decoration:none;
+}
+
+.description {
+color: #BBBDC0;
+font-family: Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.4em;
+}/*the end of content css*/
+
+
+
+.wrap_footer_center{
+	width:980px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:2px;
+	margin-bottom:5px;
+	background:#333;
+	-webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+	padding:3px 0px 5px 0px;
+	}
+#font_content{
+	font-size:14px;
+	color:#FFF;
+	font-family: Helvetica, Arial, sans-serif;
+	text-align:center;
+	}
+/*the end of footer css*/
+
+
+</style> 
+<!----the end of body main style css---->    
+  
+
+ </head>
+ <body>  
+ 
+<div id="wrap_home_page">
+ 
+   <!-- begin vivid pictures show -->
+   <div id="project_detail">
+
+	<div id="project_detail_column">
+					
+		<div id="project_images_container">		
+		
+				<div id="slideshow_prev" class="imagesizes"></div>
+			<div id="slideshow_next" class="imagesizes"></div>
+						
+			<div id="project_images" class="imagesizes">
+		<img src="images/facebook.jpg" alt="Welcome to USTC software 2012!"width="600" height="332"/>
+		<img src="images/adtm.jpg" alt="Welcome to USTC software 2012!" width="600" height="332"/>
+		<img src="images/gost.jpg" alt="Welcome to USTC software 2012!" width="600" height="332"/>
+							</div>
+		       </div>	      	
+	     </div><!-- the end of vivid pictures show div -->
+    
+		 <!--   <div id="project_description">		
+			     <p><span class="circle_shadow">Welcome to USTC software 2012!</span></p>
+	        </div>
+            ----------------->  
+            
+      </div><!----the end of vivid photo showing--->
+
+
+    <div class="clr"></div>
+<!----the begin of content----->
+  <div id="wrap_home_project">
+  
+     <div id="home">		
+		<div class="home_project_container">
+			<a href="#"><img src="http://www.kane.com.au/userfiles/image2/projects/size3/HMASCreswell_01.jpg" alt="USTC" /></a>
+			<h2><a href="#">Name of Team Number</a></h2>
+						<p class="description">Kane Constructions was appointed in 2010 to deliver&nbsp;this new&nbsp;facility for the&nbsp;Department of Defence&nbsp;at HMAS&nbsp;Creswell in Jervis Bay, New South Wales. The new building is located&#8230;</p>
+			<p><a href="#"><span class="circle_shadow">Read More</span></a></p>
+		</div>
+				
+		<div class="home_project_container">
+			<a href="#"><img src="http://www.kane.com.au/userfiles/image2/projects/size3/NPAC_Web1.jpg" alt="USTC" /></a>
+			<h2><a href="#">Name of Team Number</a></h2>
+						<p class="description">Kane Constructions was awarded&nbsp;the $18 million lump sum contract in late 2010 to construct a new aqutic centre for The&nbsp;Noble Park Aquatic&#8230;</p>
+			<p><a href="#"><span class="circle_shadow">View Project</span></a></p>
+		</div>
+        
+        <div class="home_project_container">
+			<a href="#"><img src="http://www.kane.com.au/userfiles/image2/projects/size3/HMASCreswell_01.jpg" alt="USTC" /></a>
+			<h2><a href="http://www.kane.com.au/project/hmas-cresswell-gym">Name of Team Number</a></h2>
+						<p class="description">Kane Constructions was appointed in 2010 to deliver&nbsp;this new&nbsp;facility for the&nbsp;Department of Defence&nbsp;at HMAS&nbsp;Creswell in Jervis Bay, New South Wales. The new building is located&#8230;</p>
+			<p><a href="#"><span class="circle_shadow">View Project</span></a></p>
+		</div>
+   
+        
+        <div class="home_project_container_last">
+			<a href="#"><img src="http://www.kane.com.au/userfiles/image2/projects/size3/NPAC_Web1.jpg" alt="USTC" /></a>
+			<h2><a href="http://www.kane.com.au/project/noble-park-aquatic-centre-npac">Name of Team Number</a></h2>
+						<p class="description">Kane Constructions was awarded&nbsp;the $18 million lump sum contract in late 2010 to construct a new aqutic centre  The&nbsp;Noble Park Aquatic&#8230;</p>
+			<p><a href="#"><span class="circle_shadow">View Project</span></a></p>
+		</div>
+        
+		</div>	
+     </div><!----the end of content-div---->
+     
+
+
+
+ <!----the begin of footer----->
+        <div class="clr"></div> 
+      <div class="wrap_footer_center">
+            <div id="font_content">Copyright&copyUSTC-Software 2012</div>
+      </div>
+  <!----the end of footer----->
+
+
+   <!-----to the top div---->
+     <div id="to_top">
+     <a href="#top"><img src="images/top-black-arrow.png" alt="Go back to Top"></a>
+     </div><!-----the end of to top div---->
+
+</div><!--end of wrap_home_page div---->
+
+<!-- SCRIPTS begin for images showing-->
+<script type="text/javascript">
+
+		function search(){
+		$('#search_input').replaceWith('<div id="search_input"><form id="search_form" action="http://www.kane.com.au/search" method="post"><input type="text" name="search_keywords" id="search_input_field" class="home_search" onBlur="resetsearch()" /></form></div>');
+		$("#search_input_field").focus();
+	}
+	
+	function resetsearch(){
+		$('#search_input').replaceWith('<div id="search_input"><a href="javascript:search()">Search</a></div>');
+	}
+		
+</script>
+
+
+<script type="text/javascript">
+	$('#project_images').cycle({ 
+		fx:'scrollHorz', 
+		next:  $('#slideshow_next'),
+		prev:  $('#slideshow_prev'),
+		speed: 650, 
+		timeout:6000	
+	});
+	$('#slideshow_prev,#slideshow_next').hover( function(){ $(this).css("cursor","pointer");  }, function(){  $(this).css("cursor",""); });
+
+</script> <!-- the end of SCRIPTS of images showing->   
+
+    
+    
+ </body>
 </html>

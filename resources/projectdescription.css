@@ -1,18 +1,16 @@
-.firstHeading, #catlinks{
-				display: none;
-			}
-			#content{
+
+	#content{
 				background-color: #f2f2f2;
 			}
 			#page_wrapper{
-			width: 800px;
+			width: 980px;
 			margin: auto;
 			}
 			#page_wrapper #description_wrapper{
 				margin: auto;
 				margin-top: 50px;
-				padding: 10px;
-				background-color: rgba(0,0,0,0.35);
+				padding: 25px;
+				background-color: rgba(0,0,0,0.55);
 				} 
 				#page_wrapper #description_wrapper #description_title,#description_team_name{
 					text-align: center ;
